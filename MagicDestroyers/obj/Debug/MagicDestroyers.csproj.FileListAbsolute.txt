@@ -1,7 +1,8 @@
 C:\Users\Duncan\source\repos\MagicDestroyers\MagicDestroyers\bin\Debug\MagicDestroyers.exe.config
 C:\Users\Duncan\source\repos\MagicDestroyers\MagicDestroyers\bin\Debug\MagicDestroyers.exe
 C:\Users\Duncan\source\repos\MagicDestroyers\MagicDestroyers\bin\Debug\MagicDestroyers.pdb
-C:\Users\Duncan\source\repos\MagicDestroyers\MagicDestroyers\obj\Debug\MagicDestroyers.csprojAssemblyReference.cache
 C:\Users\Duncan\source\repos\MagicDestroyers\MagicDestroyers\obj\Debug\MagicDestroyers.csproj.CoreCompileInputs.cache
 C:\Users\Duncan\source\repos\MagicDestroyers\MagicDestroyers\obj\Debug\MagicDestroyers.exe
 C:\Users\Duncan\source\repos\MagicDestroyers\MagicDestroyers\obj\Debug\MagicDestroyers.pdb
+C:\Users\Duncan\source\repos\MagicDestroyers\MagicDestroyers\obj\Debug\MagicDestroyers.csproj.AssemblyReference.cache
+C:\Users\Duncan\source\repos\MagicDestroyers\MagicDestroyers\obj\Debug\MagicDestroyers.csproj.SuggestedBindingRedirects.cache

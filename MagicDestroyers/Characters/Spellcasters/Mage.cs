@@ -49,17 +49,15 @@ public class Mage : Spellcaster
     }
 
     public Mage(string name, int level)
-        : this(name, level, DEFAULT_HEALTH_POINTS)
+        : this(name, level, DEFAULT_MANA_POINTS)
     {
     }
 
-    public Mage(string name, int level, int healthPoints)
+    public Mage(string name, int level, int manaPoints)
+        : base(name, level, manaPoints)
     {
-        this.Name = name;
-        this.Level = level;
-        this.HealthPoints = healthPoints;
-        this.Faction = DEFAULT_FACTION;
-        this.ManaPoints = DEFAULT_MANA_POINTS;
+        base.HealthPoints = DEFAULT_HEALTH_POINTS;
+        base.Faction = DEFAULT_FACTION;
         this.BodyArmor = DEFAULT_ARMOR;
         this.Weapon = DEFAULT_WEAPON;
     }

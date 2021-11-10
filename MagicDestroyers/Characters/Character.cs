@@ -64,11 +64,11 @@ namespace MagicDestroyers.Characters
             {
                 if (value >= 0 && value <= 120)
                 {
-                    this.healthPoints = level;
+                    this.healthPoints = value;
                 }
                 else
                 {
-                    this.healthPoints = 1;
+                    this.healthPoints = 100;
                     Console.WriteLine("Health cannot be negative or greater than 120!");
                 }
             }
@@ -93,6 +93,16 @@ namespace MagicDestroyers.Characters
             }
         }
 
+        public Character(int level)
+        {
+        
+        }
 
+        public Character(string name, int level)
+        {
+            this.Name = name;
+            this.Level = level;
+            
+        }
     }
 }

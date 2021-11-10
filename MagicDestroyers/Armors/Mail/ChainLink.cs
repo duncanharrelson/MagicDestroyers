@@ -6,7 +6,7 @@ public class ChainLink : Armor
     
 
     public ChainLink()
+        : base()
     {
-        this.ArmorPoints = 10;
     }
 }

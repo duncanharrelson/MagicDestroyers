@@ -5,8 +5,8 @@ public class Hammer : Blunt
 {
 
     public Hammer()
+        : base()
     {
-        this.Damage = 10;
     }
 
     public void Stun()

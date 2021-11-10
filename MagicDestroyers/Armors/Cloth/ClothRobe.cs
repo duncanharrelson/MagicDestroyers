@@ -6,7 +6,7 @@ public class ClothRobe : Armor
     
 
     public ClothRobe()
+        : base()
     {
-        this.ArmorPoints = 10;
     }
 }

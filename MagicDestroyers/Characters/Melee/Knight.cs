@@ -51,13 +51,11 @@ public class Knight : Melee
     {
     }
 
-    public Knight(string name, int level, int healthPoints)
+    public Knight(string name, int level, int abilityPoints)
+        : base(name, level, abilityPoints)
     {
-        this.Name = name;
-        this.Level = level;
-        this.HealthPoints = healthPoints;
-        this.Faction = DEFAULT_FACTION;
-        this.AbilityPoints = DEFAULT_ABILITY_POINTS;
+        base.HealthPoints = DEFAULT_HEALTH_POINTS;
+        base.Faction = DEFAULT_FACTION;
         this.BodyArmor = DEFAULT_ARMOR;
         this.Weapon = DEFAULT_WEAPON;
     }

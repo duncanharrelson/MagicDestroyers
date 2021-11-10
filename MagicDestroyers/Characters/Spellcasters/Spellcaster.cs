@@ -19,16 +19,24 @@ namespace MagicDestroyers.Characters.Spellcasters
             }
             set
             {
-                if (value >= 0 && value < 20)
+                if (value >= 0 && value <= 20)
                 {
                     this.manaPoints = value;
                 }
                 else
                 {
-                    this.manaPoints = 0;
+                    this.manaPoints = 20;
                     Console.WriteLine("Ability points cannot be negative or greater than 20!");
                 }
             }
         }
-    }
+
+        public Spellcaster(string name, int level, int manaPoints)
+            :base(name, level)
+        {
+            this.Name = name;
+            this.Level = level;
+            this.ManaPoints = manaPoints;
+        }
+    }    
 }

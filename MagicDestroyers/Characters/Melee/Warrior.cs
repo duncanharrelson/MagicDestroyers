@@ -42,11 +42,12 @@ public class Warrior : Melee
 
         }
     }
+    
 
     //basic class constructor with no input
     public Warrior()
         : this(DEFAULT_NAME, DEFAULT_LEVEL)
-    {        
+    {
     }
 
     //Chained constructor inputs values above for name and level arguments
@@ -56,12 +57,10 @@ public class Warrior : Melee
     }
 
     public Warrior(string name, int level, int abilityPoints)
+        : base(name, level, abilityPoints)
     {
-        this.Name = name;
-        this.Level = level;
-        this.HealthPoints = DEFAULT_HEALTH_POINTS;
-        this.Faction = DEFAULT_FACTION;
-        this.AbilityPoints = abilityPoints;
+        base.HealthPoints = DEFAULT_HEALTH_POINTS;
+        base.Faction = DEFAULT_FACTION;
         this.BodyArmor = DEFAULT_ARMOR;
         this.Weapon = DEFAULT_WEAPON;
     }

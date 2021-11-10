@@ -6,8 +6,8 @@ public class Sword : Sharp
     
 
     public Sword()
+        : base()
     {
-        this.Damage = 10;
     }
 
     public void Bloodthirst()

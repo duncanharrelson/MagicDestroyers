@@ -5,6 +5,7 @@ public class Staff : Blunt
 {
 
     public Staff()
+        : base()
     {
 
     }
