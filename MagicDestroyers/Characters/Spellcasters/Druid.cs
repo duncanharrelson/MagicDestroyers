@@ -1,124 +1,23 @@
-﻿using System;
+﻿using MagicDestroyers.Characters.Spellcasters;
+using MagicDestroyers.Enumerations;
+using System;
 
-public class Druid
+public class Druid : Spellcaster
 {
-    private string faction;
-    private string name;
+    //default character values
+    private const string DEFAULT_NAME = "DBob";
+    private const Faction DEFAULT_FACTION = Faction.Spellcaster;
 
-    private int abilityPoints;
-    private int healthPoints;
-    private int level;
+    private const int DEFAULT_LEVEL = 1;
+    private const int DEFAULT_MANA_POINTS = 20;
+    private const int DEFAULT_HEALTH_POINTS = 100;
 
-    private LeatherVest bodyArmor;
+    private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest();
+    private readonly Staff DEFAULT_WEAPON = new Staff();
+
     private Staff weapon;
+    private LeatherVest bodyArmor;
 
-    public string Faction
-    {
-        get
-        {
-            return this.faction;
-        }
-        set
-        {
-            if (value == "Melee" || value == "Spellcaster")
-            {
-                this.faction = value;
-            }
-            else
-            {
-                this.faction = "Spellcaster";
-                Console.WriteLine("Please choose \"Melee\" or \"Spellcaster\"");
-            }
-        }
-    }
-    public string Name
-    {
-        get
-        {
-            return this.name;
-        }
-        set
-        {
-            if (value.Length >= 2 && value.Length <= 10)
-            {
-                this.name = value;
-            }
-            else
-            {
-                this.name = "No name";
-                Console.WriteLine("Name must be between 2 and 10 characters in length.");
-            }
-        }
-    }
-
-    public int AbilityPoints
-    {
-        get
-        {
-            return this.abilityPoints;
-        }
-        set
-        {
-            if (value >= 0 && value < 30)
-            {
-                this.abilityPoints = value;
-            }
-            else
-            {
-                this.abilityPoints = 0;
-                Console.WriteLine("Ability points cannot be negative or greater than 30!");
-            }
-        }
-    }
-    public int HealthPoints
-    {
-        get
-        {
-            return this.healthPoints;
-        }
-        set
-        {
-            if (value >= 0 && value <= 70)
-            {
-                this.healthPoints = level;
-            }
-            else
-            {
-                this.healthPoints = 1;
-                Console.WriteLine("Health cannot be negative or greater than 70!");
-            }
-        }
-    }
-    public int Level
-    {
-        get
-        {
-            return this.level;
-        }
-        set
-        {
-            if (value >= 1 && value <= 100)
-            {
-                this.level = value;
-            }
-            else
-            {
-                Console.WriteLine("Level must be between 1 and 100!  Level set to 1.");
-                this.level = 1;
-            }
-        }
-    }
-    public LeatherVest BodyArmor
-    {
-        get
-        {
-            return this.bodyArmor;
-        }
-        set
-        {
-            this.bodyArmor = value;
-        }
-    }
     public Staff Weapon
     {
         get
@@ -131,13 +30,24 @@ public class Druid
         }
     }
 
+    public LeatherVest BodyArmor
+    {
+        get
+        {
+            return this.bodyArmor;
+        }
+        set
+        {
+            this.bodyArmor = value;
+        }
+    }
     public Druid()
-        : this("DBob", 1)
+        : this(DEFAULT_NAME, DEFAULT_LEVEL)
     {
     }
 
     public Druid(string name, int level)
-        : this(name, level, 10)
+        : this(name, level, DEFAULT_HEALTH_POINTS)
     {
     }
 
@@ -146,10 +56,10 @@ public class Druid
         this.Name = name;
         this.Level = level;
         this.HealthPoints = healthPoints;
-        this.Faction = "Spellcaster";
-        this.AbilityPoints = 10;
-        this.BodyArmor = new LeatherVest();
-        this.Weapon = new Staff();
+        this.Faction = DEFAULT_FACTION;
+        this.ManaPoints = DEFAULT_MANA_POINTS;
+        this.BodyArmor = DEFAULT_ARMOR;
+        this.Weapon = DEFAULT_WEAPON;
     }
 
     public void Moonfire()

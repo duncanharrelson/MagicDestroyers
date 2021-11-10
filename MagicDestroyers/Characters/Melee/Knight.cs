@@ -1,113 +1,32 @@
-﻿using System;
+﻿using MagicDestroyers.Characters.Melee;
+using MagicDestroyers.Enumerations;
+using System;
 
-public class Knight
+public class Knight : Melee
 {
-    private string faction;
-    private string name;
+    //default character values
+    private const string DEFAULT_NAME = "KBob";
+    private const Faction DEFAULT_FACTION = Faction.Melee;
 
-    private int abilityPoints;
-    private int healthPoints;
-    private int level;
+    private const int DEFAULT_LEVEL = 1;
+    private const int DEFAULT_ABILITY_POINTS = 10;
+    private const int DEFAULT_HEALTH_POINTS = 100;
 
-    private ChainLink bodyArmor;
+    private readonly ChainLink DEFAULT_ARMOR = new ChainLink();
+    private readonly Hammer DEFAULT_WEAPON = new Hammer();
+
     private Hammer weapon;
+    private ChainLink bodyArmor;
 
-    public string Faction
+    public Hammer Weapon
     {
         get
         {
-            return this.faction;
+            return this.weapon;
         }
         set
         {
-            if (value == "Melee" || value == "Spellcaster")
-            {
-                this.faction = value;
-            }
-            else
-            {
-                this.faction = "Melee";
-                Console.WriteLine("Please choose \"Melee\" or \"Spellcaster\"");
-            }
-        }
-    }
-    public string Name
-    {
-        get
-        {
-            return this.name;
-        }
-        set
-        {
-            if (value.Length >= 2 && value.Length <= 10)
-            {
-                this.name = value;
-            }
-            else
-            {
-                this.name = "No name";
-                Console.WriteLine("Name must be between 2 and 10 characters in length.");
-            }
-
-        }
-    }
-
-    public int AbilityPoints
-    {
-        get
-        {
-            return this.abilityPoints;
-        }
-        set
-        {
-            if (value >= 0 && value < 12)
-            {
-                this.abilityPoints = value;
-            }
-            else
-            {
-                this.abilityPoints = 0;
-                Console.WriteLine("Ability points cannot be negative or greater than 12!");
-            }
-
-        }
-    }
-    public int HealthPoints
-    {
-        get
-        {
-            return this.healthPoints;
-        }
-        set
-        {
-            if (value >= 0 && value <= 100)
-            {
-                this.healthPoints = level;
-            }
-            else
-            {
-                this.healthPoints = 1;
-                Console.WriteLine("Health cannot be negative or greater than 100!");
-            }
-        }
-    }
-    public int Level
-    {
-        get
-        {
-            return this.level;
-        }
-        set
-        {
-            if (value >= 1 && value <= 100)
-            {
-                this.level = value;
-            }
-            else
-            {
-                Console.WriteLine("Level must be between 1 and 100!  Level set to 1.");
-                this.level = 1;
-            }
+            this.weapon = value;
         }
     }
     public ChainLink BodyArmor
@@ -121,24 +40,14 @@ public class Knight
             this.bodyArmor = value;
         }
     }
-    public Hammer Weapon
-    {
-        get
-        {
-            return this.weapon;
-        }
-        set
-        {
-            this.weapon = value;
-        }
-    }
+    
     public Knight()
-        : this("KBob", 1)
+        : this(DEFAULT_NAME, DEFAULT_LEVEL)
     {
     }
 
     public Knight(string name, int level)
-        : this(name, level, 10)
+        : this(name, level, DEFAULT_HEALTH_POINTS)
     {
     }
 
@@ -147,10 +56,10 @@ public class Knight
         this.Name = name;
         this.Level = level;
         this.HealthPoints = healthPoints;
-        this.Faction = "Melee";
-        this.AbilityPoints = 10;
-        this.BodyArmor = new ChainLink();
-        this.Weapon = new Hammer();
+        this.Faction = DEFAULT_FACTION;
+        this.AbilityPoints = DEFAULT_ABILITY_POINTS;
+        this.BodyArmor = DEFAULT_ARMOR;
+        this.Weapon = DEFAULT_WEAPON;
     }
 
     public void HolyBlow()

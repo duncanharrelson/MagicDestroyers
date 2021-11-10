@@ -1,115 +1,26 @@
-﻿using System;
+﻿using MagicDestroyers.Characters.Melee;
+using MagicDestroyers.Enumerations;
+using System;
 
-public class Assassin
+public class Assassin : Melee
 {
-    private string faction;
-    private string name;
+    //default character values
+    private const string DEFAULT_NAME = "ABob";
+    private const Faction DEFAULT_FACTION = Faction.Melee;
 
-    private int abilityPoints;
-    private int healthPoints;
-    private int level;
+    private const int DEFAULT_LEVEL = 1;
+    private const int DEFAULT_ABILITY_POINTS = 10;
+    private const int DEFAULT_HEALTH_POINTS = 100;
+
+    private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest();
+    private readonly Sword DEFAULT_WEAPON = new Sword();
+
+
 
     private LeatherVest bodyArmor;
     private Sword weapon;
 
-    public string Faction
-    {
-        get
-        {
-            return this.faction;
-        }
-        set
-        {
-            if (value == "Melee" || value == "Spellcaster")
-            {
-                this.faction = value;
-            }
-            else
-            {
-                this.faction = "Melee";
-                Console.WriteLine("Please choose \"Melee\" or \"Spellcaster\"");
-            }
-        }
-    }
-    public string Name
-    {
-        get
-        {
-            return this.name;
-        }
-        set
-        {
-            if (value.Length >= 2 && value.Length <= 10)
-            {
-                this.name = value;
-            }
-            else
-            {
-                this.name = "No name";
-                Console.WriteLine("Name must be between 2 and 10 characters in length.");
-            }
-
-        }
-    }
-
-    public int AbilityPoints
-    {
-        get
-        {
-            return this.abilityPoints;
-        }
-        set
-        {
-            if (value >= 0 && value < 15)
-            {
-                this.abilityPoints = value;
-            }
-            else
-            {
-                this.abilityPoints = 0;
-                Console.WriteLine("Ability points cannot be negative or greater than 15!");
-            }
-
-        }
-    }
-    public int HealthPoints
-    {
-        get
-        {
-            return this.healthPoints;
-        }
-        set
-        {
-            if (value >= 0 && value <= 80)
-            {
-                this.healthPoints = level;
-            }
-            else
-            {
-                this.healthPoints = 1;
-                Console.WriteLine("Health cannot be negative or greater than 80!");
-            }
-        }
-    }
-    public int Level
-    {
-        get
-        {
-            return this.level;
-        }
-        set
-        {
-            if (value >= 1 && value <= 100)
-            {
-                this.level = value;
-            }
-            else
-            {
-                Console.WriteLine("Level must be between 1 and 100!  Level set to 1.");
-                this.level = 1;
-            }
-        }
-    }
+    
     public LeatherVest BodyArmor
     {
         get
@@ -134,12 +45,12 @@ public class Assassin
     }
 
     public Assassin()
-        : this("ABob", 1)
+        : this(DEFAULT_NAME, DEFAULT_LEVEL)
     {
     }
 
     public Assassin(string name, int level)
-        : this(name, level, 10)
+        : this(name, level, DEFAULT_HEALTH_POINTS)
     {
     }
 
@@ -148,10 +59,10 @@ public class Assassin
         this.Name = name;
         this.Level = level;
         this.HealthPoints = healthPoints;
-        this.Faction = "Melee";
-        this.AbilityPoints = 10;
-        this.BodyArmor = new LeatherVest();
-        this.Weapon = new Sword();
+        this.Faction = DEFAULT_FACTION;
+        this.AbilityPoints = DEFAULT_ABILITY_POINTS;
+        this.BodyArmor = DEFAULT_ARMOR;
+        this.Weapon = DEFAULT_WEAPON;
     }
 
     public void Raze()

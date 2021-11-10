@@ -43,6 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Armors\Armor.cs" />
+    <Compile Include="Characters\Character.cs" />
+    <Compile Include="Characters\Enumerations\Faction.cs" />
+    <Compile Include="Characters\Melee\Melee.cs" />
+    <Compile Include="Characters\Spellcasters\Spellcaster.cs" />
+    <Compile Include="InfoHandler.cs" />
+    <Compile Include="Weapons\Blunt\Blunt.cs" />
     <Compile Include="Weapons\Sharp\Axe.cs" />
     <Compile Include="Armors\Mail\ChainLink.cs" />
     <Compile Include="Armors\Cloth\ClothRobe.cs" />
@@ -56,8 +63,10 @@
     <Compile Include="Characters\Melee\Assassin.cs" />
     <Compile Include="Characters\Melee\Knight.cs" />
     <Compile Include="Weapons\Blunt\Staff.cs" />
+    <Compile Include="Weapons\Sharp\Sharp.cs" />
     <Compile Include="Weapons\Sharp\Sword.cs" />
     <Compile Include="Characters\Melee\Warrior.cs" />
+    <Compile Include="Weapons\Weapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

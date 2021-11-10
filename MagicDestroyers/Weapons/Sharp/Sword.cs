@@ -1,27 +1,9 @@
-﻿using System;
+﻿using MagicDestroyers.Weapons.Sharp;
+using System;
 
-public class Sword
+public class Sword : Sharp
 {
-    private int damage;
-    public int Damage
-    {
-        get
-        {
-            return this.damage;
-        }
-        set
-        {
-            if (value >= 1 && value <= 100)
-            {
-                this.damage = value;
-            }
-            else
-            {
-                Console.WriteLine("Inappropriate value!  Must be between 1 and 100!");
-            }
-
-        }
-    }
+    
 
     public Sword()
     {

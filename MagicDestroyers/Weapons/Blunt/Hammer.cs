@@ -1,27 +1,8 @@
-﻿using System;
+﻿using MagicDestroyers.Weapons.Blunt;
+using System;
 
-public class Hammer
+public class Hammer : Blunt
 {
-    private int damage;
-    public int Damage
-    {
-        get
-        {
-            return this.damage;
-        }
-        set
-        {
-            if (value >= 1 && value <= 100)
-            {
-                this.damage = value;
-            }
-            else
-            {
-                Console.WriteLine("Inappropriate value!  Must be between 1 and 100!");
-            }
-
-        }
-    }
 
     public Hammer()
     {
