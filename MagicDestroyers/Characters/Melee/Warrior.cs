@@ -15,35 +15,6 @@ public class Warrior : Melee
     private readonly ChainLink DEFAULT_ARMOR = new ChainLink();
     private readonly Axe DEFAULT_WEAPON = new Axe();
 
-    private Axe weapon;
-    private ChainLink bodyArmor;
-
-    public Axe Weapon
-    {
-        get
-        {
-            return this.weapon;
-        }
-        set
-        {
-            this.weapon = value;
-        }
-    }
-
-    public ChainLink BodyArmor
-    {
-        get
-        {
-            return this.bodyArmor;
-        }
-        set
-        {
-            this.bodyArmor = value;
-
-        }
-    }
-    
-
     //basic class constructor with no input
     public Warrior()
         : this(DEFAULT_NAME, DEFAULT_LEVEL)
@@ -61,8 +32,23 @@ public class Warrior : Melee
     {
         base.HealthPoints = DEFAULT_HEALTH_POINTS;
         base.Faction = DEFAULT_FACTION;
-        this.BodyArmor = DEFAULT_ARMOR;
-        this.Weapon = DEFAULT_WEAPON;
+        base.BodyArmor = DEFAULT_ARMOR;
+        base.Weapon = DEFAULT_WEAPON;
+    }
+
+    public override void BasicAttack()
+    {
+        this.Strike();
+    }
+
+    public override void SpecialAttack()
+    {
+        this.Execute();
+    }
+
+    public override void Defend()
+    {
+        this.SkinHarden();
     }
 
     public void Strike()

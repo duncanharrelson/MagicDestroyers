@@ -1,4 +1,7 @@
-﻿using MagicDestroyers.Enumerations;
+﻿using MagicDestroyers.Armors;
+using MagicDestroyers.Characters.Interfaces;
+using MagicDestroyers.Enumerations;
+using MagicDestroyers.Weapons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,30 +10,17 @@ using System.Threading.Tasks;
 
 namespace MagicDestroyers.Characters
 {
-    public class Character
+    public abstract class Character : IAttack, IDefend
     {
-        private Faction faction;
         private string name;
-
-        
-        
-        private int healthPoints;
         private int level;
-
+        private int healthPoints;
         
+        private Faction faction;
 
+        private Weapon weapon;
+        private Armor bodyArmor;
 
-        public Faction Faction
-        {
-            get
-            {
-                return this.faction;
-            }
-            set
-            {
-                this.faction = value;
-            }
-        }
         public string Name
         {
             get
@@ -49,28 +39,6 @@ namespace MagicDestroyers.Characters
                     Console.WriteLine("Name must be between 2 and 10 characters in length.");
                 }
 
-            }
-        }
-
-     
-        
-        public int HealthPoints
-        {
-            get
-            {
-                return this.healthPoints;
-            }
-            set
-            {
-                if (value >= 0 && value <= 120)
-                {
-                    this.healthPoints = value;
-                }
-                else
-                {
-                    this.healthPoints = 100;
-                    Console.WriteLine("Health cannot be negative or greater than 120!");
-                }
             }
         }
         public int Level
@@ -92,6 +60,61 @@ namespace MagicDestroyers.Characters
                 }
             }
         }
+        public int HealthPoints
+        {
+            get
+            {
+                return this.healthPoints;
+            }
+            set
+            {
+                if (value >= 0 && value <= 120)
+                {
+                    this.healthPoints = value;
+                }
+                else
+                {
+                    this.healthPoints = 100;
+                    Console.WriteLine("Health cannot be negative or greater than 120!");
+                }
+            }
+        }
+        
+        public Faction Faction
+        {
+            get
+            {
+                return this.faction;
+            }
+            set
+            {
+                this.faction = value;
+            }
+        }
+        public Weapon Weapon
+        {
+            get
+            {
+                return this.weapon;
+            }
+            set
+            {
+                this.weapon = value;
+            }
+        }
+        public Armor BodyArmor
+        {
+            get
+            {
+                return this.bodyArmor;
+            }
+            set
+            {
+                this.bodyArmor = value;
+
+            }
+        }
+
 
         public Character(int level)
         {
@@ -104,5 +127,14 @@ namespace MagicDestroyers.Characters
             this.Level = level;
             
         }
+
+        public abstract void BasicAttack();
+
+
+        public abstract void SpecialAttack();
+      
+
+        public abstract void Defend();
+        
     }
 }

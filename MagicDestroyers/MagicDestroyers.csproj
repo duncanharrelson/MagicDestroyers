@@ -46,6 +46,8 @@
     <Compile Include="Armors\Armor.cs" />
     <Compile Include="Characters\Character.cs" />
     <Compile Include="Characters\Enumerations\Faction.cs" />
+    <Compile Include="Characters\Interfaces\IAttack.cs" />
+    <Compile Include="Characters\Interfaces\IDefend.cs" />
     <Compile Include="Characters\Melee\Melee.cs" />
     <Compile Include="Characters\Spellcasters\Spellcaster.cs" />
     <Compile Include="InfoHandler.cs" />

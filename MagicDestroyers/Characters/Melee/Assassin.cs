@@ -15,35 +15,6 @@ public class Assassin : Melee
     private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest();
     private readonly Sword DEFAULT_WEAPON = new Sword();
 
-
-
-    private LeatherVest bodyArmor;
-    private Sword weapon;
-
-    
-    public LeatherVest BodyArmor
-    {
-        get
-        {
-            return this.bodyArmor;
-        }
-        set
-        {
-            this.bodyArmor = value;
-        }
-    }
-    public Sword Weapon
-    {
-        get
-        {
-            return this.weapon;
-        }
-        set
-        {
-            this.weapon = value;
-        }
-    }
-
     public Assassin()
         : this(DEFAULT_NAME, DEFAULT_LEVEL)
     {
@@ -59,8 +30,23 @@ public class Assassin : Melee
     {
         base.HealthPoints = DEFAULT_HEALTH_POINTS;
         base.Faction = DEFAULT_FACTION;
-        this.BodyArmor = DEFAULT_ARMOR;
-        this.Weapon = DEFAULT_WEAPON;
+        base.BodyArmor = DEFAULT_ARMOR;
+        base.Weapon = DEFAULT_WEAPON;
+    }
+
+    public override void BasicAttack()
+    {
+        this.Raze();
+    }
+
+    public override void SpecialAttack()
+    {
+        this.Bleed();
+    }
+
+    public override void Defend()
+    {
+        this.Survival();
     }
 
     public void Raze()

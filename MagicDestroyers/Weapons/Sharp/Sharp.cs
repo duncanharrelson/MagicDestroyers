@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MagicDestroyers.Weapons.Sharp
 {
-    public class Sharp : Weapon
+    public abstract class Sharp : Weapon
     {
     }
 }

@@ -15,32 +15,6 @@ public class Knight : Melee
     private readonly ChainLink DEFAULT_ARMOR = new ChainLink();
     private readonly Hammer DEFAULT_WEAPON = new Hammer();
 
-    private Hammer weapon;
-    private ChainLink bodyArmor;
-
-    public Hammer Weapon
-    {
-        get
-        {
-            return this.weapon;
-        }
-        set
-        {
-            this.weapon = value;
-        }
-    }
-    public ChainLink BodyArmor
-    {
-        get
-        {
-            return this.bodyArmor;
-        }
-        set
-        {
-            this.bodyArmor = value;
-        }
-    }
-    
     public Knight()
         : this(DEFAULT_NAME, DEFAULT_LEVEL)
     {
@@ -56,10 +30,24 @@ public class Knight : Melee
     {
         base.HealthPoints = DEFAULT_HEALTH_POINTS;
         base.Faction = DEFAULT_FACTION;
-        this.BodyArmor = DEFAULT_ARMOR;
-        this.Weapon = DEFAULT_WEAPON;
+        base.BodyArmor = DEFAULT_ARMOR;
+        base.Weapon = DEFAULT_WEAPON;
     }
 
+    public override void BasicAttack()
+    {
+        this.HolyBlow();
+    }
+
+    public override void SpecialAttack()
+    {
+        this.PurifySoul();
+    }
+
+    public override void Defend()
+    {
+        this.RighteousWings();
+    }
     public void HolyBlow()
     {
         throw new NotImplementedException();

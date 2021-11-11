@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MagicDestroyers.Weapons.Blunt
+namespace MagicDestroyers.Characters.Interfaces
 {
-    public abstract class Blunt : Weapon
+    public interface IDefend
     {
+
+        void Defend();
+
     }
 }

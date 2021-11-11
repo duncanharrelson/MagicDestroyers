@@ -15,32 +15,7 @@ public class Druid : Spellcaster
     private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest();
     private readonly Staff DEFAULT_WEAPON = new Staff();
 
-    private Staff weapon;
-    private LeatherVest bodyArmor;
-
-    public Staff Weapon
-    {
-        get
-        {
-            return this.weapon;
-        }
-        set
-        {
-            this.weapon = value;
-        }
-    }
-
-    public LeatherVest BodyArmor
-    {
-        get
-        {
-            return this.bodyArmor;
-        }
-        set
-        {
-            this.bodyArmor = value;
-        }
-    }
+    
     public Druid()
         : this(DEFAULT_NAME, DEFAULT_LEVEL)
     {
@@ -56,10 +31,24 @@ public class Druid : Spellcaster
     {
         base.HealthPoints = DEFAULT_HEALTH_POINTS;
         base.Faction = DEFAULT_FACTION;
-        this.BodyArmor = DEFAULT_ARMOR;
-        this.Weapon = DEFAULT_WEAPON;
+        base.BodyArmor = DEFAULT_ARMOR;
+        base.Weapon = DEFAULT_WEAPON;
     }
 
+    public override void BasicAttack()
+    {
+        this.Moonfire();
+    }
+
+    public override void SpecialAttack()
+    {
+        this.Starburst();
+    }
+
+    public override void Defend()
+    {
+        this.OneWithNature();
+    }
     public void Moonfire()
     {
         throw new NotImplementedException();

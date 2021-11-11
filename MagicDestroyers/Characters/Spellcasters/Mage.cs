@@ -14,34 +14,7 @@ public class Mage : Spellcaster
 
     private readonly ClothRobe DEFAULT_ARMOR = new ClothRobe();
     private readonly Staff DEFAULT_WEAPON = new Staff();
-
-
-
-    private Staff weapon;
-    private ClothRobe bodyArmor;
-
-    public Staff Weapon
-    {
-        get
-        {
-            return this.weapon;
-        }
-        set
-        {
-            this.weapon = value;
-        }
-    }
-    public ClothRobe BodyArmor
-    {
-        get
-        {
-            return this.bodyArmor;
-        }
-        set
-        {
-            this.bodyArmor = value;
-        }
-    }
+         
 
     public Mage()
         : this(DEFAULT_NAME, DEFAULT_LEVEL)
@@ -58,10 +31,24 @@ public class Mage : Spellcaster
     {
         base.HealthPoints = DEFAULT_HEALTH_POINTS;
         base.Faction = DEFAULT_FACTION;
-        this.BodyArmor = DEFAULT_ARMOR;
-        this.Weapon = DEFAULT_WEAPON;
+        base.BodyArmor = DEFAULT_ARMOR;
+        base.Weapon = DEFAULT_WEAPON;
     }
 
+    public override void BasicAttack()
+    {
+        this.ArcaneWrath();
+    }
+
+    public override void SpecialAttack()
+    {
+        this.Fireball();
+    }
+
+    public override void Defend()
+    {
+        this.Meditation();
+    }
     public void ArcaneWrath()
     {
         throw new NotImplementedException();
