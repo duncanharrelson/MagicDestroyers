@@ -50,6 +50,7 @@
     <Compile Include="Characters\Interfaces\IDefend.cs" />
     <Compile Include="Characters\Melee\Melee.cs" />
     <Compile Include="Characters\Spellcasters\Spellcaster.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="InfoHandler.cs" />
     <Compile Include="Weapons\Blunt\Blunt.cs" />
     <Compile Include="Weapons\Sharp\Axe.cs" />
