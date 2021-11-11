@@ -33,34 +33,38 @@ public class Mage : Spellcaster
         base.Faction = DEFAULT_FACTION;
         base.BodyArmor = DEFAULT_ARMOR;
         base.Weapon = DEFAULT_WEAPON;
+        base.IsAlive = true;
+        base.Scores = 0;
     }
 
     public override int BasicAttack()
     {
-        return this.ArcaneWrath();
+        return this.Fireball();
     }
 
     public override int SpecialAttack()
     {
-        return this.Fireball();
+        return this.ArcaneWrath();
     }
 
-    public override void Defend()
+    public override int Defend()
     {
-        this.Meditation();
+        return this.Meditation();
     }
+
+    public int Fireball()
+    {
+        return base.Weapon.Damage + 10;
+    }
+
     public int ArcaneWrath()
     {
         throw new NotImplementedException();
     }
 
-    public int Fireball()
-    {
-        throw new NotImplementedException();
-    }
 
-    public void Meditation()
+    public int Meditation()
     {
-        throw new NotImplementedException();
+        return base.BodyArmor.ArmorPoints + 5;
     }
 }

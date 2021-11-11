@@ -13,6 +13,11 @@ namespace MagicDestroyers
     {
         static void Main(string[] args)
         {
+            Random rng = new Random();
+
+            int currentMelee = 0;
+            int currentSpellcaster = 0;
+
             bool gameOver = false;
 
             List<Character> characters = new List<Character>()
@@ -46,23 +51,60 @@ namespace MagicDestroyers
 
             while (!gameOver)
             {
+                currentMelee = rng.Next(0, meleeTeam.Count);
+                currentSpellcaster = rng.Next(0, spellTeam.Count);
+
+                spellTeam[currentSpellcaster].TakeDamage(meleeTeam[currentMelee].BasicAttack(), meleeTeam[currentMelee].Name);
+
+                if (!spellTeam[currentSpellcaster].IsAlive)
+                {
+                    meleeTeam[currentMelee].WonBattle();
+                    spellTeam.Remove(spellTeam[currentSpellcaster]);
+
+                    if (spellTeam.Count == 0)
+                    {
+                        Console.WriteLine("Melee team wins!");
+                        break;
+                    }
+                    else
+                    {
+                        currentSpellcaster = rng.Next(0, spellTeam.Count);
+                    }
+                }
+
+                meleeTeam[currentMelee].TakeDamage(spellTeam[currentSpellcaster].BasicAttack(), spellTeam[currentSpellcaster].Name);
+
+                if (!meleeTeam[currentMelee].IsAlive)
+                {
+                    spellTeam[currentSpellcaster].WonBattle();
+                    meleeTeam.Remove(meleeTeam[currentMelee]);
+
+                    if (meleeTeam.Count == 0)
+                    {
+                        Console.WriteLine("Spellcaster team wins!");
+                        break;
+                    }
+                    else
+                    {
+                        currentMelee = rng.Next(0, meleeTeam.Count);
+                    }
+                }
+
+
+
                 //---Basic logic breakdown---   (aka I'm not a game designer, I just work here)
                 //1. Take random melee character
                 //2. Take random spellcaster character
 
                 //   Make attack method take character as argument
-                spellTeam[0].TakeDamage(meleeTeam[0].BasicAttack());
-
                 //3. Melee attacks spellcaster
                 //   Check if character died and remove from team
                 //   If dead, get new character from team
 
-                meleeTeam[0].TakeDamage(spellTeam[0].BasicAttack());
                 //4. Spellcaster attacks melee
                 //   Check if character died and remove from team
                 //   If dead, get new character from team
 
-                //5. If no characters alive from either team, gameOver = true
 
 
             }

@@ -125,7 +125,7 @@ namespace MagicDestroyers.Characters
             {
                 return this.isAlive;
             }
-            private set
+            protected set
             {
                 this.isAlive = value;
             }
@@ -137,7 +137,7 @@ namespace MagicDestroyers.Characters
             {
                 return this.scores;
             }
-            private set
+            protected set
             {
                 this.scores = value;
             }
@@ -162,11 +162,43 @@ namespace MagicDestroyers.Characters
         public abstract int SpecialAttack();
       
 
-        public abstract void Defend();
+        public abstract int Defend();
         
-        public void TakeDamage(int damage)
+        public void TakeDamage(int damage, string attackerName)
         {
-            this.healthPoints = this.healthPoints - damage;
+            if (this.Defend() < damage)
+            {
+                this.healthPoints = this.healthPoints - damage + this.Defend();
+
+                if (this.healthPoints <= 0)
+                {
+                    this.isAlive = false;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Defense was too high!  No damage dealt!");
+            } 
+
+            if (!this.isAlive)
+            {
+                Console.WriteLine($"{this.name} received {damage} points of damage from {attackerName}, and has fallen!");
+            }
+            else
+            {
+                Console.WriteLine($"{this.name} received {damage} points of damage from {attackerName}, and has {this.healthPoints} health left!");
+            }
+
+        }
+
+        public void WonBattle()
+        {
+            this.scores++;
+
+            if (this.scores % 10 == 0)
+            {
+                this.level++;
+            }
         }
 
     }

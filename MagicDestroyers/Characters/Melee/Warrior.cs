@@ -35,6 +35,8 @@ public class Warrior : Melee
         base.Faction = DEFAULT_FACTION;
         base.BodyArmor = DEFAULT_ARMOR;
         base.Weapon = DEFAULT_WEAPON;
+        base.IsAlive = true;
+        base.Scores = 0;
     }
 
     public override int BasicAttack()
@@ -47,9 +49,9 @@ public class Warrior : Melee
         return this.Execute();
     }
 
-    public override void Defend()
+    public override int Defend()
     {
-        this.SkinHarden();
+        return this.SkinHarden();
     }
 
     public int Strike()
@@ -62,9 +64,9 @@ public class Warrior : Melee
         throw new NotImplementedException();
     }
 
-    public void SkinHarden()
+    public int SkinHarden()
     {
-        throw new NotImplementedException();
+        return base.BodyArmor.ArmorPoints + 5;
     }
 }
 
