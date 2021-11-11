@@ -9,8 +9,8 @@ namespace MagicDestroyers.Characters.Interfaces
     public interface IAttack
     {
         
-        void BasicAttack();
-        void SpecialAttack();
+        int BasicAttack();
+        int SpecialAttack();
 
     }
 }

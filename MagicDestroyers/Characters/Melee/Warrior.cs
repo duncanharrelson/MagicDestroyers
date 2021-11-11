@@ -1,4 +1,5 @@
-﻿using MagicDestroyers.Characters.Melee;
+﻿using MagicDestroyers.Characters;
+using MagicDestroyers.Characters.Melee;
 using MagicDestroyers.Enumerations;
 using System;
 
@@ -36,14 +37,14 @@ public class Warrior : Melee
         base.Weapon = DEFAULT_WEAPON;
     }
 
-    public override void BasicAttack()
+    public override int BasicAttack()
     {
-        this.Strike();
+        return this.Strike();
     }
 
-    public override void SpecialAttack()
+    public override int SpecialAttack()
     {
-        this.Execute();
+        return this.Execute();
     }
 
     public override void Defend()
@@ -51,12 +52,12 @@ public class Warrior : Melee
         this.SkinHarden();
     }
 
-    public void Strike()
+    public int Strike()
     {
-        throw new NotImplementedException();
+        return base.Weapon.Damage + 10;
     }
 
-    public void Execute()
+    public int Execute()
     {
         throw new NotImplementedException();
     }

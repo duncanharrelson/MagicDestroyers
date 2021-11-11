@@ -13,13 +13,17 @@ namespace MagicDestroyers.Characters
     public abstract class Character : IAttack, IDefend
     {
         private string name;
+
         private int level;
         private int healthPoints;
+        private int scores;
         
         private Faction faction;
 
         private Weapon weapon;
         private Armor bodyArmor;
+
+        private bool isAlive;
 
         public string Name
         {
@@ -115,6 +119,30 @@ namespace MagicDestroyers.Characters
             }
         }
 
+        public bool IsAlive
+        {
+            get
+            {
+                return this.isAlive;
+            }
+            private set
+            {
+                this.isAlive = value;
+            }
+        }
+
+        public int Scores
+        {
+            get
+            {
+                return this.scores;
+            }
+            private set
+            {
+                this.scores = value;
+            }
+        }
+
 
         public Character(int level)
         {
@@ -128,13 +156,18 @@ namespace MagicDestroyers.Characters
             
         }
 
-        public abstract void BasicAttack();
+        public abstract int BasicAttack();
 
 
-        public abstract void SpecialAttack();
+        public abstract int SpecialAttack();
       
 
         public abstract void Defend();
         
+        public void TakeDamage(int damage)
+        {
+            this.healthPoints = this.healthPoints - damage;
+        }
+
     }
 }

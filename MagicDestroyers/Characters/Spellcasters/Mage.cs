@@ -35,26 +35,26 @@ public class Mage : Spellcaster
         base.Weapon = DEFAULT_WEAPON;
     }
 
-    public override void BasicAttack()
+    public override int BasicAttack()
     {
-        this.ArcaneWrath();
+        return this.ArcaneWrath();
     }
 
-    public override void SpecialAttack()
+    public override int SpecialAttack()
     {
-        this.Fireball();
+        return this.Fireball();
     }
 
     public override void Defend()
     {
         this.Meditation();
     }
-    public void ArcaneWrath()
+    public int ArcaneWrath()
     {
         throw new NotImplementedException();
     }
 
-    public void Fireball()
+    public int Fireball()
     {
         throw new NotImplementedException();
     }
