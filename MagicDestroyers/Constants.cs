@@ -11,7 +11,7 @@ namespace MagicDestroyers
     {
         public static class Warrior
         {
-            public const string NAME = "Bob";
+            public const string NAME = "Large Bob";
             public const Faction FACTION = Faction.Melee;
             public const int LEVEL = 1;
             public const int ABILITY_POINTS = 10;
@@ -20,7 +20,7 @@ namespace MagicDestroyers
 
         public static class Knight
         {
-            public const string NAME = "Knight Bob";
+            public const string NAME = "Valor Bob";
             public const Faction FACTION = Faction.Melee;
             public const int LEVEL = 1;
             public const int ABILITY_POINTS = 10;
@@ -38,7 +38,7 @@ namespace MagicDestroyers
 
         public static class Mage
         {
-            public const string NAME = "MagicBob";
+            public const string NAME = "Magic Bob";
             public const Faction FACTION = Faction.Spellcaster;
             public const int LEVEL = 1;
             public const int MANA_POINTS = 20;
@@ -47,7 +47,7 @@ namespace MagicDestroyers
 
         public static class Necromancer
         {
-            public const string NAME = "NecroBob";
+            public const string NAME = "Spooky Bob";
             public const Faction FACTION = Faction.Spellcaster;
             public const int LEVEL = 1;
             public const int MANA_POINTS = 20;
@@ -56,7 +56,7 @@ namespace MagicDestroyers
 
         public static class Druid
         {
-            public const string NAME = "TreeBob";
+            public const string NAME = "Tree Bob";
             public const Faction FACTION = Faction.Spellcaster;
             public const int LEVEL = 1;
             public const int MANA_POINTS = 20;

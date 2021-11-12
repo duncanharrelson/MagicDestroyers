@@ -45,7 +45,7 @@ public class Druid : Spellcaster
     }
     public int Moonfire()
     {
-        throw new NotImplementedException();
+        return base.Weapon.Damage + 10;
     }
 
     public int Starburst()
@@ -55,6 +55,6 @@ public class Druid : Spellcaster
 
     public int OneWithNature()
     {
-        throw new NotImplementedException();
+        return base.BodyArmor.ArmorPoints + 5;
     }
 }

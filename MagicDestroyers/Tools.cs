@@ -14,9 +14,7 @@ namespace MagicDestroyers
             Console.WriteLine(message);
             Console.ResetColor();
         }
-
         
-
         public static void TypeSpecificColorfulCW(string message, string type)
         {
             ConsoleColor color;

@@ -23,15 +23,11 @@ namespace MagicDestroyers
             List<Character> characters = new List<Character>()
             {
                 new Warrior(),
-                new Warrior(),
-                new Warrior(),
-                //new Knight(),
-                //new Assassin(),
+                new Knight(),
+                new Assassin(),
                 new Mage(),
-                new Mage(),
-                new Mage()
-                //new Necromancer(),
-                //new Druid()
+                new Necromancer(),
+                new Druid()
             };
 
             List<Melee> meleeTeam = new List<Melee>();
