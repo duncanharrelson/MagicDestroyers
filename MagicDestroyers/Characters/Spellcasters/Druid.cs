@@ -1,66 +1,60 @@
-﻿//using MagicDestroyers.Characters.Spellcasters;
-//using MagicDestroyers.Enumerations;
-//using System;
+﻿using MagicDestroyers;
+using MagicDestroyers.Characters.Spellcasters;
+using MagicDestroyers.Enumerations;
+using System;
 
-//public class Druid : Spellcaster
-//{
-//    //default character values
-//    private const string DEFAULT_NAME = "DBob";
-//    private const Faction DEFAULT_FACTION = Faction.Spellcaster;
+public class Druid : Spellcaster
+{
+   
+    private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest();
+    private readonly Staff DEFAULT_WEAPON = new Staff();
 
-//    private const int DEFAULT_LEVEL = 1;
-//    private const int DEFAULT_MANA_POINTS = 20;
-//    private const int DEFAULT_HEALTH_POINTS = 100;
 
-//    private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest();
-//    private readonly Staff DEFAULT_WEAPON = new Staff();
+    public Druid()
+        : this(Constants.Druid.NAME, Constants.Druid.LEVEL)
+    {
+    }
 
-    
-//    public Druid()
-//        : this(DEFAULT_NAME, DEFAULT_LEVEL)
-//    {
-//    }
+    public Druid(string name, int level)
+        : this(name, level, Constants.Druid.MANA_POINTS)
+    {
+    }
 
-//    public Druid(string name, int level)
-//        : this(name, level, DEFAULT_MANA_POINTS)
-//    {
-//    }
+    public Druid(string name, int level, int manaPoints)
+        : base(name, level, manaPoints)
+    {
+        base.HealthPoints = Constants.Druid.HEALTH_POINTS;
+        base.Faction = Constants.Druid.FACTION;
+        base.BodyArmor = DEFAULT_ARMOR;
+        base.Weapon = DEFAULT_WEAPON;
+    }
 
-//    public Druid(string name, int level, int manaPoints)
-//        : base(name, level, manaPoints)
-//    {
-//        base.HealthPoints = DEFAULT_HEALTH_POINTS;
-//        base.Faction = DEFAULT_FACTION;
-//        base.BodyArmor = DEFAULT_ARMOR;
-//        base.Weapon = DEFAULT_WEAPON;
-//    }
+    public override int BasicAttack()
+    {
+        return this.Moonfire();
+    }
 
-//    public override void BasicAttack()
-//    {
-//        this.Moonfire();
-//    }
+    public override int SpecialAttack()
+    {
+        return this.Starburst();
+    }
 
-//    public override void SpecialAttack()
-//    {
-//        this.Starburst();
-//    }
+    public override int Defend()
+    {
+        return this.OneWithNature();
+    }
+    public int Moonfire()
+    {
+        throw new NotImplementedException();
+    }
 
-//    public override void Defend()
-//    {
-//        this.OneWithNature();
-//    }
-//    public void Moonfire()
-//    {
-//        throw new NotImplementedException();
-//    }
+    public int Starburst()
+    {
+        throw new NotImplementedException();
+    }
 
-//    public void Starburst()
-//    {
-//        throw new NotImplementedException();
-//    }
-
-//    public void OneWithNature()
-//    {
-//        throw new NotImplementedException();
-//    }
-//}
+    public int OneWithNature()
+    {
+        throw new NotImplementedException();
+    }
+}

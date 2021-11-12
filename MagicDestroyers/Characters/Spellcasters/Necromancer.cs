@@ -1,68 +1,60 @@
-﻿//using MagicDestroyers.Characters.Spellcasters;
-//using MagicDestroyers.Enumerations;
-//using System;
+﻿using MagicDestroyers;
+using MagicDestroyers.Characters.Spellcasters;
+using MagicDestroyers.Enumerations;
+using System;
 
-//public class Necromancer : Spellcaster
-//{
-//    //default character values
-//    private const string DEFAULT_NAME = "NBob";
-//    private const Faction DEFAULT_FACTION = Faction.Spellcaster;
-
-//    private const int DEFAULT_LEVEL = 1;
-//    private const int DEFAULT_MANA_POINTS = 20;
-//    private const int DEFAULT_HEALTH_POINTS = 100;
-
-//    private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest();
-//    private readonly Sword DEFAULT_WEAPON = new Sword();
-
-
+public class Necromancer : Spellcaster
+{
     
-//    public Necromancer()
-//        : this(DEFAULT_NAME, DEFAULT_LEVEL)
-//    {
-//    }
+    private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest();
+    private readonly Sword DEFAULT_WEAPON = new Sword();
 
-//    public Necromancer(string name, int level)
-//        : this(name, level, DEFAULT_MANA_POINTS)
-//    {
-//    }
+    public Necromancer()
+        : this(Constants.Necromancer.NAME, Constants.Necromancer.LEVEL)
+    {
+    }
 
-//    public Necromancer(string name, int level, int manaPoints)
-//        : base(name, level, manaPoints)
-//    {
-//        base.HealthPoints = DEFAULT_HEALTH_POINTS;
-//        base.Faction = DEFAULT_FACTION;
-//        base.BodyArmor = DEFAULT_ARMOR;
-//        base.Weapon = DEFAULT_WEAPON;
-//    }
+    public Necromancer(string name, int level)
+        : this(name, level, Constants.Necromancer.MANA_POINTS)
+    {
+    }
 
-//    public override void BasicAttack()
-//    {
-//        this.ShadowRage();
-//    }
+    public Necromancer(string name, int level, int manaPoints)
+        : base(name, level, manaPoints)
+    {
+        base.HealthPoints = Constants.Necromancer.HEALTH_POINTS;
+        base.Faction = Constants.Necromancer.FACTION;
+        base.BodyArmor = DEFAULT_ARMOR;
+        base.Weapon = DEFAULT_WEAPON;
+    }
 
-//    public override void SpecialAttack()
-//    {
-//        this.VampireTouch();
-//    }
+    public override int BasicAttack()
+    {
+        return this.ShadowRage();
+    }
 
-//    public override void Defend()
-//    {
-//        this.BoneShield();
-//    }
+    public override int SpecialAttack()
+    {
+        return this.VampireTouch();
+    }
 
-//    public void ShadowRage()
-//    {
-//        throw new NotImplementedException();
-//    }
+    public override int Defend()
+    {
+        return this.BoneShield();
+    }
 
-//    public void VampireTouch()
-//    {
-//        throw new NotImplementedException();
-//    }
+    public int ShadowRage()
+    {
+        return base.Weapon.Damage + 10;
+    }
 
-//    public void BoneShield()
-//    {
-//        throw new NotImplementedException();
-//    }
-//}
+    public int VampireTouch()
+    {
+        throw new NotImplementedException();
+    }
+
+    public int BoneShield()
+    {
+        return base.BodyArmor.ArmorPoints + 5;
+    }
+}
