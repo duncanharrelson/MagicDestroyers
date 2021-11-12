@@ -26,6 +26,8 @@ namespace MagicDestroyers
             public const int MANA_POINTS = 20;
             public const int HEALTH_POINTS = 100;
         }
+
+
         
     }
 }

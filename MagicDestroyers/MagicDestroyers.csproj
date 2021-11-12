@@ -52,6 +52,7 @@
     <Compile Include="Characters\Spellcasters\Spellcaster.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="InfoHandler.cs" />
+    <Compile Include="Tools.cs" />
     <Compile Include="Weapons\Blunt\Blunt.cs" />
     <Compile Include="Weapons\Sharp\Axe.cs" />
     <Compile Include="Armors\Mail\ChainLink.cs" />
